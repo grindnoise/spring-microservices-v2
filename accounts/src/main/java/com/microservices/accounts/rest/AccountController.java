@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.HtmlUtils;
 
 @Tag(name = "Accounts", description = "Accounts API")
 @RestController
@@ -65,7 +66,7 @@ public class AccountController {
                                                     String mobileNumber) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(accountsService.fetchAccount(mobileNumber));
+                .body(accountsService.fetchAccount(HtmlUtils.htmlEscape(mobileNumber)));
     }
 
     @Operation(summary = "Delete account", description = "Delete an existing account")
@@ -75,7 +76,7 @@ public class AccountController {
     public ResponseEntity<ResponseDto> deleteAccount(@RequestParam
                                                      @Pattern(regexp = "^[0-9]{10}$", message = "Account number must be 10 digits")
                                                      String mobileNumber) {
-        accountsService.deleteAccount(mobileNumber);
+        accountsService.deleteAccount(HtmlUtils.htmlEscape(mobileNumber));
 
         return ResponseEntity
                 .status(HttpStatus.OK)
