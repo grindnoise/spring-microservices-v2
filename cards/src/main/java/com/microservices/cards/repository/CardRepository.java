@@ -1,6 +1,6 @@
-package com.microservices.Cards.repository;
+package com.microservices.cards.repository;
 
-import com.microservices.Cards.entity.Card;
+import com.microservices.cards.entity.Card;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

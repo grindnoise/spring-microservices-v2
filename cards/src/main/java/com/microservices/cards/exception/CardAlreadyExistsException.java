@@ -1,4 +1,4 @@
-package com.microservices.Cards.exception;
+package com.microservices.cards.exception;
 
 public class CardAlreadyExistsException extends  RuntimeException {
     public CardAlreadyExistsException(String message) {

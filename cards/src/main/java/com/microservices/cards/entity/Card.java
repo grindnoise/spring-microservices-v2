@@ -1,7 +1,6 @@
-package com.microservices.Cards.entity;
+package com.microservices.cards.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

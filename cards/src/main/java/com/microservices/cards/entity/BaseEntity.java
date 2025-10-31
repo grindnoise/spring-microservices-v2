@@ -1,4 +1,4 @@
-package com.microservices.Cards.entity;
+package com.microservices.cards.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

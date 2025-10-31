@@ -1,12 +1,12 @@
-package com.microservices.Cards.service;
+package com.microservices.cards.service;
 
-import com.microservices.Cards.constants.CardsConstants;
-import com.microservices.Cards.dto.CardDto;
-import com.microservices.Cards.entity.Card;
-import com.microservices.Cards.exception.CardAlreadyExistsException;
-import com.microservices.Cards.exception.ResourceNotFoundException;
-import com.microservices.Cards.mapper.CardMapper;
-import com.microservices.Cards.repository.CardRepository;
+import com.microservices.cards.constants.CardsConstants;
+import com.microservices.cards.dto.CardDto;
+import com.microservices.cards.entity.Card;
+import com.microservices.cards.exception.CardAlreadyExistsException;
+import com.microservices.cards.exception.ResourceNotFoundException;
+import com.microservices.cards.mapper.CardMapper;
+import com.microservices.cards.repository.CardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

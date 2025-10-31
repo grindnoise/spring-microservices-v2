@@ -1,6 +1,6 @@
-package com.microservices.Cards.service;
+package com.microservices.cards.service;
 
-import com.microservices.Cards.dto.CardDto;
+import com.microservices.cards.dto.CardDto;
 
 public interface CardService {
 

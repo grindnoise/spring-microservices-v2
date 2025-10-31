@@ -1,8 +1,8 @@
-package com.microservices.Cards.mapper;
+package com.microservices.cards.mapper;
 
 
-import com.microservices.Cards.dto.CardDto;
-import com.microservices.Cards.entity.Card;
+import com.microservices.cards.dto.CardDto;
+import com.microservices.cards.entity.Card;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.NullValuePropertyMappingStrategy;

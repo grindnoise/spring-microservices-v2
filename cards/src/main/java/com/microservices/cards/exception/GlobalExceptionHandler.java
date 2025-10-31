@@ -1,6 +1,6 @@
-package com.microservices.Cards.exception;
+package com.microservices.cards.exception;
 
-import com.microservices.Cards.dto.ErrorResponseDto;
+import com.microservices.cards.dto.ErrorResponseDto;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -39,11 +39,16 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<ErrorResponseDto> handleConstraintViolationException(ConstraintViolationException ex, WebRequest request) {
         return new ResponseEntity<>(ErrorResponseDto.of(
                 HttpStatus.BAD_REQUEST,
-                ex.getConstraintViolations().stream().map(violation -> {
-
-                    return Arrays.stream(violation.getPropertyPath().toString().split(".")).toList().getLast() + " " + violation.getMessage();
-                }).collect(Collectors.joining(", ")),
+                ex.getConstraintViolations().stream().map(violation -> violation.getPropertyPath() + " " + violation.getMessage()).collect(Collectors.joining(", ")),
                 HtmlUtils.htmlEscape(request.getDescription(false))), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponseDto> handleGlobalException(Exception ex, WebRequest request) {
+        return new ResponseEntity<>(ErrorResponseDto.of(
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                ex.getMessage(),
+                HtmlUtils.htmlEscape(request.getDescription(false))), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
